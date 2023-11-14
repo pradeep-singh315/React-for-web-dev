@@ -1,8 +1,14 @@
 const renderingFunction = (element, container) => {
     const domElement = document.createElement(element.type)
     domElement.innerHTML = element.children
-    domElement.setAttribute('href', element.props.href)
-    domElement.setAttribute('target', element.props.target)
+
+    // domElement.setAttribute('href', element.props.href)
+    // domElement.setAttribute('target', element.props.target)
+
+    for (const prop in element.props) {
+        domElement.setAttribute(prop, element.props[prop])
+            
+        }
     container.appendChild(domElement)
 }
 
